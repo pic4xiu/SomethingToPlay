@@ -7,4 +7,5 @@ A repository for playing
 ## AiToClassifyVirus
 > [Using AI to complete virus detection](https://github.com/pic4xiu/SomethingToPlay/tree/main/AiToClassifyVirus)
 
-## [A WAF using AI, highly scalable and supporting high concurrency](https://github.com/pic4xiu/SomethingToPlay/tree/main/aiWAF)
+## aiWAF
+> [A WAF using AI, highly scalable and supporting high concurrency](https://github.com/pic4xiu/SomethingToPlay/tree/main/aiWAF)
