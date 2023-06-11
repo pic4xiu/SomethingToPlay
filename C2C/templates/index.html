@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>服务端</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #status {
+            margin-bottom: 20px;
+        }
+
+        #status h2,
+        #commands h2 {
+            margin-bottom: 10px;
+        }
+
+        #commands {
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .command-info {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .command-result {
+            font-family: monospace;
+            white-space: pre;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>远程服务器控制</h1>
+
+    <div id="status">
+        <h2>在线机器:</h2>
+        <ul id="machine-list"></ul>
+    </div>
+
+    <div id="commands">
+        <h2>下达命令:</h2>
+        <ul id="command-list"></ul>
+    </div>
+
+    <form id="command-form">
+        <label for="machine-ip">局域网地址:</label>
+        <input type="text" id="machine-ip" name="machine_ip" required><br><br>
+
+        <label for="command">命令:</label>
+        <input type="text" id="command" name="command" required><br><br>
+
+        <button type="submit">发送！</button>
+    </form>
+
+    <script>
+        function updateStatus() {
+            fetch('/show')
+                .then(response => response.json())
+                .then(data => {
+                    const machineList = document.getElementById('machine-list');
+                    machineList.innerHTML = '';
+
+                    data.forEach(machine => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `${machine.machine_ip} (上次登录: ${machine.last_ping})`;
+
+                        const commandList = document.createElement('ul');
+                        commandList.classList.add('command-list');
+                        machine.commands.forEach(command => {
+                            const cmdLi = document.createElement('li');
+                            cmdLi.innerHTML = `<pre class="command-info">${command.command}</pre>
+                                <pre class="command-result">${command.result}</pre>
+                                <span class="command-info">Status: ${command.status}</span>`;
+                            commandList.appendChild(cmdLi);
+                        });
+
+                        li.appendChild(commandList);
+                        machineList.appendChild(li);
+                    });
+                });
+        }
+
+        setInterval(updateStatus, 1000);  // 每隔5秒更新状态
+
+        document.getElementById('command-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const machineIP = document.getElementById('machine-ip').value;
+            const command = document.getElementById('command').value;
+
+            fetch('/give', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `machine_ip=${encodeURIComponent(machineIP)}&command=${encodeURIComponent(command)}`
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Command sent successfully.');
+                    } else {
+                        console.log('Failed to send command.');
+                    }
+                }); document.getElementById('command-form').reset();
+        });
+    </script>
+</body>
+
+</html>
