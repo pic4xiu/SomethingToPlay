@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>在线病毒检测小网站捏</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            setInterval(function() {
+                $.get("/getresult?md5={{.MD5}}", function(data) {
+                    $("#result").html(data);
+                });
+            }, 10000);
+        });
+    </script>
+</head>
+<body>
+    <h1>病毒样本上传</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <br>
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+    <br>
+    {{if .Message}}
+    <div>
+        <p>{{.Message}}</p>
+        <p>前边还有 {{.MessageCount}}人在排队，马上就到你啦</p>
+        <p>您的样本文件MD5: {{.MD5}}</p>
+    </div>
+    {{end}}
+    <br>
+    <div id="result"></div>
+</body>
+</html>
