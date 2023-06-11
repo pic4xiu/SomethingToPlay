@@ -10,5 +10,5 @@ A repository for playing
 ## aiWAF
 > [A WAF using AI, highly scalable and supporting high concurrency](https://github.com/pic4xiu/SomethingToPlay/tree/main/aiWAF)
 
-## alertsys
+## alertSys
 > [An alarm system that can regularly monitor whether the local computer accesses malicious IP or domain names](https://github.com/pic4xiu/SomethingToPlay/tree/main/alertsys)
