@@ -1,5 +1,5 @@
 # SomethingToPlay
-A repository for playing
+Some small things developed by myself
 
 ## C2C
 > [A C&C completed using https](https://github.com/pic4xiu/SomethingToPlay/tree/main/C2C)
