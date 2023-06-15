@@ -12,3 +12,6 @@ Some small things developed by myself
 
 ## alertSys
 > [An alarm system that can regularly monitor whether the local computer accesses malicious IP or domain names](https://github.com/pic4xiu/SomethingToPlay/tree/main/alertsys)
+
+## gofuzz
+> [Just write some fuzz test programs](https://github.com/pic4xiu/SomethingToPlay/tree/main/gofuzz)
