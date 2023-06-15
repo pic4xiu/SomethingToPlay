@@ -15,3 +15,6 @@ Some small things developed by myself
 
 ## gofuzz
 > [Just write some fuzz test programs](https://github.com/pic4xiu/SomethingToPlay/tree/main/gofuzz)
+
+## Plugins for capturing URLs
+> [Send all the urls you visit to the remote server to build your own data set](https://greasyfork.org/zh-CN/scripts/468709-plugins-for-capturing-urls/code)
