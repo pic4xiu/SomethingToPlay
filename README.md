@@ -1,5 +1,6 @@
 # SomethingToPlay
-Some small things developed by myself
+
+Several projects independently developed by myself are mainly related to the combination of AI and security.
 
 ## C2C
 > [A C&C completed using https](https://github.com/pic4xiu/SomethingToPlay/tree/main/C2C)
