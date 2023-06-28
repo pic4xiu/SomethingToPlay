@@ -19,3 +19,6 @@ Several projects independently developed by myself are mainly related to the com
 
 ## tampermonkey plugin
  - [Send all the urls you visit to the remote server to build your own data set](https://greasyfork.org/zh-CN/scripts/468709-plugins-for-capturing-urls/code)
+
+## ida pro plugin
+ - [The ida script plug-in that automatically recognizes the address of the basic block of the program helps to set a breakpoint for the basic block in the fuzz phase](https://github.com/pic4xiu/SomethingToPlay/blob/main/idap/autoBreak.py)
