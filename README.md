@@ -17,6 +17,8 @@ Several projects independently developed by myself , which mainly related to the
 ## gofuzz
 > [Just write some fuzz test programs](https://github.com/pic4xiu/SomethingToPlay/tree/main/gofuzz)
 
+fuzzer is another project that is still under development (I don't know when to develop it again, perhaps when I have gone through the AFL-fuzz source code).Now it's the simplest version 0.1, maybe you can read it in a few minutes
+
 ## tampermonkey plugin
  - [Send all the urls you visit to the remote server to build your own data set](https://greasyfork.org/zh-CN/scripts/468709-plugins-for-capturing-urls/code)
 
