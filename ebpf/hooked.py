@@ -1,6 +1,6 @@
 from bcc import BPF
 b = BPF(text="""
-BPF_HASH(fdmap);
+
 struct syscall_read_logging
 {
     long unsigned int buffer_addr;
@@ -38,7 +38,6 @@ TRACEPOINT_PROBE(syscalls, sys_exit_read) {
 	char *buff_addr;
         
 	size_t pid_tgid = bpf_get_current_pid_tgid();
-    //buff_addr = (char *)fdmap.lookup(&pid_tgid);
     const char *target_comm = "behooked";
     for (int i = 0; i < 9; i++)
     {
@@ -50,14 +49,13 @@ TRACEPOINT_PROBE(syscalls, sys_exit_read) {
     char str[256];
    	struct syscall_read_logging *data= map_buff_addrs.lookup(&pid_tgid);
         if (data == 0) return 0;
-    char hook[]="123";
+    char hook[]="flag{true}";
     long int te=data->calling_size;
     long unsigned int tmpbuf=(long unsigned int)data->buffer_addr;
-        if (te==832){
+        if (te!=4096){
         return 0;
 		}
-    bpf_probe_write_user(tmpbuf, hook, 4); 
-    bpf_trace_printk("%d\\n", te);
+    bpf_probe_write_user(tmpbuf, hook, 11); 
     return 0;
 }
         """)
