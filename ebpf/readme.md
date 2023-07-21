@@ -2,6 +2,8 @@
 
 最近学了点 BCC 的皮毛，完成了密钥分发阶段的密钥劫持。也踩了不少坑，记录一下。网上相关资料质量参差不齐，官方的库[资料](https://github.com/iovisor/bcc/blob/master/docs/tutorial_bcc_python_developer.md)非常适合入门：库里边的 issue 也有很多很好的高质量问题。
 
+视频演示视频：[bilibili](https://www.bilibili.com/video/BV1Fx4y1o7S8/)
+
 ### ebpf 简要说明
 
 eBPF（Extended Berkeley Packet Filter）是一种在 Linux 内核中执行的虚拟机技术，它可以用于网络分析、性能监控、安全审计等多个领域。以下是 eBPF 的一些主要用途：
