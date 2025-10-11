@@ -1,4 +1,4 @@
-# SomethingToPlay
+# SecPlayground
 
 Several projects independently developed by myself , which mainly related to the combination of AI and security.
 
